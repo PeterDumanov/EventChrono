@@ -54,17 +54,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63Z-Im-BXd">
-                                <rect key="frame" x="32" y="148" width="329" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Cfe-G7-jlX">
+                                <rect key="frame" x="10" y="153" width="373" height="615"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xTM-gX-oEL">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="104"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the event name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63Z-Im-BXd">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1II-PX-1gc">
+                                                <rect key="frame" x="0.0" y="54" width="373" height="50"/>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJW-Kb-BZ4">
+                                        <rect key="frame" x="0.0" y="580.66666666666663" width="373" height="34.333333333333371"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                        <connections>
+                                            <action selector="addButtonPressed:" destination="LHa-hw-iqW" eventType="touchUpInside" id="s5q-b6-GXg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="xTM-gX-oEL" secondAttribute="trailing" id="gDY-J2-YEc"/>
+                                    <constraint firstItem="xTM-gX-oEL" firstAttribute="leading" secondItem="Cfe-G7-jlX" secondAttribute="leading" id="pW0-pN-2Mf"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WOU-Iy-zud"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cfe-G7-jlX" firstAttribute="leading" secondItem="WOU-Iy-zud" secondAttribute="leading" constant="10" id="3PU-sH-sdG"/>
+                            <constraint firstItem="Cfe-G7-jlX" firstAttribute="top" secondItem="WOU-Iy-zud" secondAttribute="top" constant="50" id="3px-wF-pJI"/>
+                            <constraint firstItem="WOU-Iy-zud" firstAttribute="trailing" secondItem="Cfe-G7-jlX" secondAttribute="trailing" constant="10" id="SQl-yF-Ye6"/>
+                            <constraint firstItem="WOU-Iy-zud" firstAttribute="bottom" secondItem="Cfe-G7-jlX" secondAttribute="bottom" constant="50" id="Vug-hm-TrI"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8JX-lh-lgd"/>
+                    <navigationItem key="navigationItem" title="Add a new event" id="8JX-lh-lgd"/>
+                    <connections>
+                        <outlet property="eventDatePicker" destination="1II-PX-1gc" id="PMW-Kt-vNS"/>
+                        <outlet property="eventNameTextField" destination="63Z-Im-BXd" id="MdE-na-ZJw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHY-N3-82A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

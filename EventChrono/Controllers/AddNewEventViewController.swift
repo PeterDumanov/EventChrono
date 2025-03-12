@@ -9,9 +9,16 @@ import UIKit
 
 class AddNewEventViewController: UIViewController {
 
+    @IBOutlet weak var eventNameTextField: UITextField!
+    
+    @IBOutlet weak var eventDatePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+        
+    }
 }
