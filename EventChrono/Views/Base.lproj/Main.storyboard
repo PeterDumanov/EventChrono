@@ -55,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63Z-Im-BXd">
-                                <rect key="frame" x="148" y="156" width="97" height="34"/>
+                                <rect key="frame" x="32" y="148" width="329" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -68,12 +68,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHY-N3-82A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2521" y="18"/>
+            <point key="canvasLocation" x="2519.8473282442746" y="17.605633802816904"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dGY-w5-Yx2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="40l-ap-gDT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bck-xV-1qp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XFF-h4-bWO">
@@ -85,6 +84,7 @@
                         <segue destination="dbX-2k-hS9" kind="relationship" relationship="rootViewController" id="61L-Af-76Q"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40l-ap-gDT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="660.30534351145036" y="17.605633802816904"/>
         </scene>

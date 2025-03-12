@@ -77,8 +77,6 @@
 				C88F8E832D7F5DE000D59675 /* EventChrono */,
 			);
 			name = EventChrono;
-			packageProductDependencies = (
-			);
 			productName = EventChrono;
 			productReference = C88F8E812D7F5DE000D59675 /* EventChrono.app */;
 			productType = "com.apple.product-type.application";
