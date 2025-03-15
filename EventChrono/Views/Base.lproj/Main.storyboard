@@ -57,7 +57,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Cfe-G7-jlX">
                                 <rect key="frame" x="10" y="153" width="373" height="565"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xTM-gX-oEL">
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xTM-gX-oEL">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="104"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the event name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63Z-Im-BXd">
@@ -66,9 +66,13 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1II-PX-1gc">
-                                                <rect key="frame" x="0.0" y="54" width="373" height="50"/>
+                                                <rect key="frame" x="69.666666666666686" y="54" width="234" height="50"/>
                                             </datePicker>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="63Z-Im-BXd" firstAttribute="leading" secondItem="xTM-gX-oEL" secondAttribute="leading" id="Hec-ne-c9E"/>
+                                            <constraint firstAttribute="trailing" secondItem="63Z-Im-BXd" secondAttribute="trailing" id="ji1-sl-g9z"/>
+                                        </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJW-Kb-BZ4">
                                         <rect key="frame" x="0.0" y="530.66666666666663" width="373" height="34.333333333333371"/>

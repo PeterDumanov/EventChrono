@@ -18,7 +18,7 @@ class AddNewEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        eventNameTextField.delegate = self
     }
 
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -63,5 +63,12 @@ class AddNewEventViewController: UIViewController {
                 toastLabel.removeFromSuperview()
             }
         }
+    }
+}
+
+extension AddNewEventViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
