@@ -31,7 +31,7 @@
                             <outlet property="delegate" destination="dbX-2k-hS9" id="9d7-lI-NUH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="1Qm-2s-eXT">
+                    <navigationItem key="navigationItem" title="Events" id="1Qm-2s-eXT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lNC-Vb-LUa">
                             <connections>
                                 <action selector="addButtonPressed:" destination="dbX-2k-hS9" id="x6C-F8-rlX"/>
