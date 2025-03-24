@@ -10,7 +10,7 @@ import CoreData
 
 class EventsViewController: UITableViewController {
     
-    var events = [Event]()
+    private var events = [Event]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -21,6 +21,8 @@ class EventsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         loadEvents()
     }
 
@@ -29,9 +31,12 @@ class EventsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! EventCell
         let event = events[indexPath.row]
-        cell.textLabel?.text = "\(event.name!) \(event.date!)"
+        
+        cell.eventLabel.text = event.name!
+        cell.setEventDate(date: event.date!)
+        
         return cell
     }
     
