@@ -16,7 +16,7 @@ class EventCell: UITableViewCell {
     func setEventDate(date: Date) {
         let timeDiff = DateHelper.timeDifference(targetDate: date)
         
-        dateLabel.textColor = timeDiff.second ?? 0 > 0 ? .systemOrange : .systemGreen
+        dateLabel.textColor = timeDiff.second ?? 0 > 0 ? .systemOrange : .systemGreen //TODO: Refactor
         
         dateLabel.text = DateHelper.differenceString(from: timeDiff)
     }

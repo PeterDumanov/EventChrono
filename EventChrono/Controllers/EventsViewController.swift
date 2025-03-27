@@ -22,7 +22,7 @@ class EventsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")//TODO: Create a constants struct
         loadEvents()
     }
 
@@ -42,6 +42,26 @@ class EventsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive,
+                                              title: "Delete") { [weak self] (_, _, completionHandler) in
+            self!.context.delete(self!.events[indexPath.row])
+
+            do {
+                try self!.context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            self!.events.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+        
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
