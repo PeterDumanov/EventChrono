@@ -13,10 +13,24 @@ class EventsViewController: UITableViewController {
     private var events = [Event]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self else { return }
+            for cell in self.tableView.visibleCells {
+                if let timerCell = cell as? EventCell {
+                    timerCell.updateLabel()
+                }
+            }
+        }
+        
+    }
+    
+    deinit {
+        timer?.invalidate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +49,8 @@ class EventsViewController: UITableViewController {
         let event = events[indexPath.row]
         
         cell.eventLabel.text = event.name!
-        cell.setEventDate(date: event.date!)
+        cell.eventDate = event.date!
+        cell.updateLabel()
         
         return cell
     }

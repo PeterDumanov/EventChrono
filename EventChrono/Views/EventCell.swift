@@ -13,12 +13,16 @@ class EventCell: UITableViewCell {
     
     @IBOutlet private weak var dateLabel: UILabel!
     
-    func setEventDate(date: Date) {
-        let timeDiff = DateHelper.timeDifference(targetDate: date)
-        
-        dateLabel.textColor = timeDiff.second ?? 0 > 0 ? .systemOrange : .systemGreen //TODO: Refactor
-        
-        dateLabel.text = DateHelper.differenceString(from: timeDiff)
+    var eventDate: Date?
+    
+    func updateLabel() {
+        if let eventDate {
+            let timeDiff = DateHelper.timeDifference(targetDate: eventDate)
+            
+            dateLabel.textColor = timeDiff.second ?? 0 > 0 ? .systemOrange : .systemGreen //TODO: Refactor
+            
+            dateLabel.text = DateHelper.differenceString(from: timeDiff)
+        }
     }
     
     override func awakeFromNib() {
