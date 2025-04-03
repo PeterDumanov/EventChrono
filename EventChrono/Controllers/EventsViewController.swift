@@ -26,7 +26,6 @@ class EventsViewController: UITableViewController {
                 }
             }
         }
-        
     }
     
     deinit {
@@ -95,5 +94,4 @@ class EventsViewController: UITableViewController {
         }
         tableView.reloadData()
     }
-    
 }

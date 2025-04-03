@@ -17,11 +17,11 @@ class EventCell: UITableViewCell {
     
     func updateLabel() {
         if let eventDate {
-            let timeDiff = DateHelper.timeDifference(targetDate: eventDate)
+            let (timeDiff, isFuture) = DateHelper.timeDifference(targetDate: eventDate)
             
-            dateLabel.textColor = timeDiff.second ?? 0 > 0 ? .systemOrange : .systemGreen //TODO: Refactor
+            dateLabel.textColor = isFuture ? .systemGreen :  .systemOrange
             
-            dateLabel.text = DateHelper.differenceString(from: timeDiff)
+            dateLabel.text = DateHelper.differenceString(from: timeDiff, isFuture: isFuture)
         }
     }
     
