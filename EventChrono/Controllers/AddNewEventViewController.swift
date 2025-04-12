@@ -9,10 +9,6 @@ import UIKit
 import CoreData
 
 class AddNewEventViewController: UIViewController {
-
-    @IBOutlet weak var eventNameTextField: UITextField!
-    
-    @IBOutlet weak var eventDatePicker: UIDatePicker!
     
     @IBOutlet weak var addEventTableView: UITableView!
     
@@ -22,19 +18,24 @@ class AddNewEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventNameTextField.delegate = self
         addEventTableView.delegate = self
         addEventTableView.dataSource = self
         addEventTableView.register(UINib(nibName: "AddEventCell", bundle: nil), forCellReuseIdentifier: "ReusableAddEventCell")//TODO: Create a constants struct
     }
 
     @IBAction func addButtonPressed(_ sender: UIButton) {
+        
+        guard let eventNameTextField = (addEventTableView.visibleCells as! [AddEventCell]).first(where: {$0.cellType == .text})?.eventNameTextField, let eventDatePicker = (addEventTableView.visibleCells as! [AddEventCell]).first(where: {$0.cellType == .date})?.eventDatePicker else {
+            fatalError()
+        }
+        
         if eventNameTextField.text != "" {
             let newEvent = Event(context: context)
             newEvent.name = eventNameTextField.text
             newEvent.date = eventDatePicker.date
             do {
                 try context.save()
+                eventNameTextField.text = ""
                 showToast(message: "Saved", color: UIColor.systemGreen)
             }
             catch {
@@ -73,13 +74,6 @@ class AddNewEventViewController: UIViewController {
     }
 }
 
-extension AddNewEventViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
-
 extension AddNewEventViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         2
@@ -88,7 +82,7 @@ extension AddNewEventViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableAddEventCell", for: indexPath) as! AddEventCell
         
-        cell.setType(addCellTypes[indexPath.row])
+        cell.cellType = addCellTypes[indexPath.row]
         
         return cell
     }

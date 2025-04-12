@@ -20,9 +20,26 @@ class AddEventCell: UITableViewCell {
         case date
     }
     
+    var cellType: AddEventCellType? {
+        didSet {
+            switch cellType {
+            case .text:
+                addEventCellLabel.text = "Event name"
+                eventNameTextField.isHidden = false
+                eventDatePicker.isHidden = true
+            case .date:
+                addEventCellLabel.text = "Event date"
+                eventNameTextField.isHidden = true
+                eventDatePicker.isHidden = false
+            case .none:
+                break
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        eventNameTextField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,18 +47,11 @@ class AddEventCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func setType(_ type: AddEventCellType) {
-        switch type {
-        case .text:
-            addEventCellLabel.text = "Event name"
-            eventNameTextField.isHidden = false
-            eventDatePicker.isHidden = true
-        case .date:
-            addEventCellLabel.text = "Event date"
-            eventNameTextField.isHidden = true
-            eventDatePicker.isHidden = false
-        }
+}
+
+extension AddEventCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-    
 }
