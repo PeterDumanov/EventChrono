@@ -21,7 +21,7 @@ class EventCell: UITableViewCell {
             
             dateLabel.textColor = isFuture ? .systemGreen :  .systemOrange
             
-            dateLabel.text = DateHelper.differenceString(from: timeDiff, isFuture: isFuture)
+            dateLabel.text = DateHelper.differenceString(from: timeDiff, for: isFuture)
         }
     }
     

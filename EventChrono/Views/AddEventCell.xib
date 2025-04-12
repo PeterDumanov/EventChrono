@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableAddEventCell" rowHeight="70" id="KGk-i7-Jjw" customClass="AddEventCell" customModule="EventChrono" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="382" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="382" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="EyJ-ba-gtg">
+                        <rect key="frame" x="10" y="10" width="2013" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qEg-3e-A3j" userLabel="Add Event Label">
+                                <rect key="frame" x="0.0" y="13" width="120" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="lHV-ma-fO8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHe-7L-1b6" userLabel="Event Name Text Field">
+                                <rect key="frame" x="135" y="7.6666666666666679" width="41.333333333333343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Seh-Fs-Yh6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HB0-Vf-h2S">
+                                <rect key="frame" x="191" y="8" width="1822" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="dRf-WW-lEA"/>
+                                    <constraint firstAttribute="height" constant="35" id="pES-t5-PAS"/>
+                                </constraints>
+                            </datePicker>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="pTg-oE-fOE"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EyJ-ba-gtg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="5r5-Le-jyz"/>
+                    <constraint firstAttribute="trailing" secondItem="EyJ-ba-gtg" secondAttribute="trailing" constant="10" id="7uk-ff-sKs"/>
+                    <constraint firstAttribute="trailing" secondItem="EyJ-ba-gtg" secondAttribute="trailing" constant="10" id="K9v-0p-7XO"/>
+                    <constraint firstItem="EyJ-ba-gtg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="jjX-Lb-FN1"/>
+                    <constraint firstItem="EyJ-ba-gtg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="s0F-Ub-Ew5"/>
+                    <constraint firstAttribute="bottom" secondItem="EyJ-ba-gtg" secondAttribute="bottom" constant="10" id="sM6-wq-zFD"/>
+                    <constraint firstAttribute="bottom" secondItem="EyJ-ba-gtg" secondAttribute="bottom" constant="10" id="uFa-aL-4KE"/>
+                    <constraint firstItem="EyJ-ba-gtg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="wEo-Nu-Sp5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addEventCellLabel" destination="qEg-3e-A3j" id="ZMO-7C-9ij"/>
+                <outlet property="eventDatePicker" destination="HB0-Vf-h2S" id="UCy-rm-yIZ"/>
+                <outlet property="eventNameTextField" destination="YHe-7L-1b6" id="qcz-Mw-GFV"/>
+            </connections>
+            <point key="canvasLocation" x="180.15267175572518" y="28.87323943661972"/>
+        </tableViewCell>
+    </objects>
+</document>

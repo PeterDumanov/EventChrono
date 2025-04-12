@@ -18,6 +18,8 @@ class EventsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: "ReusableEventCell")//TODO: Create a constants struct
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self else { return }
             for cell in self.tableView.visibleCells {
@@ -34,8 +36,6 @@ class EventsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")//TODO: Create a constants struct
         loadEvents()
     }
 
@@ -44,7 +44,7 @@ class EventsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! EventCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableEventCell", for: indexPath) as! EventCell
         let event = events[indexPath.row]
         
         cell.eventLabel.text = event.name!

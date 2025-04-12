@@ -8,8 +8,8 @@ struct DateHelper {
         return (dateComponents, ((dateComponents.minute ?? 0) + (dateComponents.second ?? 0)) < 0)
     }
     
-    static func differenceString(from: DateComponents, isFuture: Bool) -> String {
-        var result: String = ""
+    static func differenceString(from: DateComponents, for isFuture: Bool) -> String {
+        var result: String = String()
         guard let years = from.year, let months = from.month, let days = from.day, let hours = from.hour, let minutes = from.minute, let seconds = from.second
                 
         else {
@@ -26,6 +26,6 @@ struct DateHelper {
         result += metrics
             .compactMap { $0.value != 0 ? "\(abs($0.value)) \($0.unit)" : nil }
             .joined(separator: ", ")
-        return (isFuture ? "Remaining: " : "Elapsed: ") + (result != "" ? result : "0 s.")
+        return (isFuture ? "Remaining: " : "Elapsed: ") + (!result.isEmpty ? result : "0 s.")
     }
 }

@@ -64,8 +64,18 @@
                                             <constraint firstAttribute="trailing" secondItem="63Z-Im-BXd" secondAttribute="trailing" id="ji1-sl-g9z"/>
                                         </constraints>
                                     </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ksc-lU-7tC" userLabel="Add Event Table View">
+                                        <rect key="frame" x="0.0" y="132" width="373" height="301"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="301" id="7vs-gM-u9P"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="LHa-hw-iqW" id="g69-t4-dLI"/>
+                                        </connections>
+                                    </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJW-Kb-BZ4">
-                                        <rect key="frame" x="0.0" y="530.66666666666663" width="373" height="34.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="461" width="373" height="104"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Add"/>
                                         <connections>
@@ -74,7 +84,9 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="ksc-lU-7tC" firstAttribute="centerY" secondItem="Cfe-G7-jlX" secondAttribute="centerY" id="fNF-I7-5Bm"/>
                                     <constraint firstAttribute="trailing" secondItem="xTM-gX-oEL" secondAttribute="trailing" id="gDY-J2-YEc"/>
+                                    <constraint firstItem="ksc-lU-7tC" firstAttribute="centerX" secondItem="Cfe-G7-jlX" secondAttribute="centerX" id="ojy-41-wbn"/>
                                     <constraint firstItem="xTM-gX-oEL" firstAttribute="leading" secondItem="Cfe-G7-jlX" secondAttribute="leading" id="pW0-pN-2Mf"/>
                                 </constraints>
                             </stackView>
@@ -90,6 +102,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add a new event" id="8JX-lh-lgd"/>
                     <connections>
+                        <outlet property="addEventTableView" destination="ksc-lU-7tC" id="e64-3r-Ltp"/>
                         <outlet property="eventDatePicker" destination="1II-PX-1gc" id="PMW-Kt-vNS"/>
                         <outlet property="eventNameTextField" destination="63Z-Im-BXd" id="MdE-na-ZJw"/>
                     </connections>
