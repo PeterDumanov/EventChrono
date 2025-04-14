@@ -18,7 +18,7 @@ class EventsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: "ReusableEventCell")//TODO: Create a constants struct
+        tableView.register(UINib(nibName: K.eventCellNibName, bundle: nil), forCellReuseIdentifier: K.eventCellIdentifier)
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self else { return }
@@ -44,7 +44,7 @@ class EventsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableEventCell", for: indexPath) as! EventCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.eventCellIdentifier, for: indexPath) as! EventCell
         let event = events[indexPath.row]
         
         cell.eventLabel.text = event.name!
@@ -79,7 +79,7 @@ class EventsViewController: UITableViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "goToAddEvent", sender: self)
+        performSegue(withIdentifier: K.addEventSegue, sender: self)
     }
     
     func loadEvents(with request: NSFetchRequest<Event> = Event.fetchRequest(), predicate: NSPredicate? = nil) {

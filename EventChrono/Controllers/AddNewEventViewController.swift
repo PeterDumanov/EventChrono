@@ -20,7 +20,7 @@ class AddNewEventViewController: UIViewController {
         super.viewDidLoad()
         addEventTableView.delegate = self
         addEventTableView.dataSource = self
-        addEventTableView.register(UINib(nibName: "AddEventCell", bundle: nil), forCellReuseIdentifier: "ReusableAddEventCell")//TODO: Create a constants struct
+        addEventTableView.register(UINib(nibName: K.addEventCellNibName, bundle: nil), forCellReuseIdentifier: K.addEventCellIdentifier)
     }
 
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -80,12 +80,10 @@ extension AddNewEventViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableAddEventCell", for: indexPath) as! AddEventCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.addEventCellIdentifier, for: indexPath) as! AddEventCell
         
         cell.cellType = addCellTypes[indexPath.row]
         
         return cell
     }
-    
-   
 }
