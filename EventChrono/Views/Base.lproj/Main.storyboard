@@ -63,7 +63,9 @@
                                             <constraint firstAttribute="height" constant="60" id="0fA-a1-AfC"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="addButtonPressed:" destination="LHa-hw-iqW" eventType="touchUpInside" id="s5q-b6-GXg"/>
                                         </connections>
