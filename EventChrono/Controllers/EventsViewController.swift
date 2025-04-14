@@ -55,7 +55,15 @@ class EventsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedEvent = events[indexPath.row]
+        let alert = UIAlertController(title: selectedEvent.name, message: selectedEvent.date?.formatted(), preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ок", style: .default) {_ in
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
